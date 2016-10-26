@@ -28,23 +28,17 @@ class ViewController: UITableViewController, DataEnteredDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return self.theCityList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //add a cell, create object UITableViewCell
         
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
         //create a variable that will count number of cells
         //counts how many times city appears in the list
 
-        //var city : City = City()
-
         city = theCityList[indexPath.row]
-        
         cell.textLabel?.text = city.name
-        
         return cell
     }
 
@@ -60,15 +54,14 @@ class ViewController: UITableViewController, DataEnteredDelegate {
             let secondViewController : AddCityViewController = segue.destination as! AddCityViewController
             secondViewController.delegate = self
         }
-        
-        if (segue.identifier == "VC3") {
-            
+        if (segue.identifier == "VC3")
+        {
             let thirdViewController : DetailedCityViewController = segue.destination as! DetailedCityViewController
-            thirdViewController.city = city.name
-            thirdViewController.rating = city.rating
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            city = theCityList[indexPath.row]
+            thirdViewController.city.name = city.name
+            thirdViewController.city.rating = city.rating
         }
-        
     }
-
 }
 

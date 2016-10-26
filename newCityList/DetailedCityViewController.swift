@@ -13,14 +13,14 @@ class DetailedCityViewController: UIViewController {
     @IBOutlet var ratingLabel: UILabel!
     
     @IBOutlet var cityNameLabel: UILabel!
-    var city : String = String()
-    var rating: String = String ()
+    
+    var city : City = City()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ratingLabel.text = rating
-cityNameLabel.text = city
+        ratingLabel.text = city.rating
+        cityNameLabel.text = city.name
         // Do any additional setup after loading the view.
     }
 
