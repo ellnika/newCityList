@@ -10,6 +10,6 @@ import Foundation
 
 struct City {
 
-    var name : String = String()
-    var rating : String = String()
+    var name  = String()
+    var rating = String()
 }

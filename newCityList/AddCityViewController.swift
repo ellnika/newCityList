@@ -20,7 +20,7 @@ class AddCityViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet var pickerView: UIPickerView!
     var ratingTypes = ["0", "1", "2","3","4","5"]
     var car : String = String()
-    var delegate : DataEnteredDelegate? = nil
+    var delegate : DataEnteredDelegate?
     
     @IBOutlet var cityLabel: UITextField!
     override func viewDidLoad() {
@@ -43,10 +43,10 @@ class AddCityViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     
     @IBAction func newSaveButton(_ sender: AnyObject) {
-        if (delegate != nil) {
+        if let _ = delegate  {
             if (cityLabel.text != nil) {
                 
-                var newCity  : City = City()
+                var newCity  = City()
                 newCity.name = cityLabel.text!
                 newCity.rating = car
                 delegate?.userDiDEnterInformation(city: newCity)
